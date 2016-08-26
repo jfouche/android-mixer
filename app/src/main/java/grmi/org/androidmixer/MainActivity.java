@@ -4,31 +4,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public void onAdd(View view)
-    {
-        Log.d(TAG, "onAdd()");
-    }
-
-    public void onRecord(View view)
-    {
-        Log.d(TAG, "onRecord()");
-
-    }
-
-    public void onPlay(View view)
-    {
-        Log.d(TAG, "onPlay()");
-
+        TracksListAdapter tlAdapter = new TracksListAdapter(this);
+        ListView listView = (ListView) findViewById(R.id.lv_tracks);
+        listView.setAdapter(tlAdapter);
     }
 }
