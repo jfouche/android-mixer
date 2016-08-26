@@ -15,21 +15,23 @@ public class TracksListAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater;
     private Context mContext;
+    private MixerController controller;
 
-    public TracksListAdapter(Context context)
+    public TracksListAdapter(Context context, MixerController controller)
     {
         mContext = context;
         mInflater = LayoutInflater.from(mContext);
+        this.controller = controller;
     }
 
     @Override
     public int getCount() {
-        return 150;
+        return controller.getTracks().size();
     }
 
     @Override
     public Object getItem(int position) {
-        return "coucou";
+        return controller.getTracks().get(position);
     }
 
     @Override
@@ -41,12 +43,12 @@ public class TracksListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         LinearLayout layoutItem;
         if (convertView == null) {
-            layoutItem = (LinearLayout) mInflater.inflate(R.layout.tracklayout, parent, false);
+            layoutItem = (LinearLayout) mInflater.inflate(R.layout.layout_track, parent, false);
         } else {
             layoutItem = (LinearLayout) convertView;
         }
         TextView txtView = (TextView)layoutItem.findViewById(R.id.textView);
-        txtView.setText("cooucou");
+        txtView.setText(controller.getTracks().get(position).getFile().getName());
         return layoutItem;
     }
 }
