@@ -11,20 +11,27 @@ import java.util.List;
  */
 public class MixerController {
 
+    static private int index = 1;
+
     private MicRecorder recorder;
-    private List<Track> tracks;
+    private MixTable mixTable;
 
     public MixerController()
     {
         this.recorder = new MicRecorder();
-        this.tracks = new ArrayList<>();
+        this.mixTable = new MixTable();
+    }
+
+    public MixTable getMixTable()
+    {
+        return mixTable;
     }
 
     public void record()
     {
         File file = getFile();
         Track track = new Track(file);
-        this.tracks.add(track);
+        this.mixTable.getTracks().add(track);
         //this.recorder.start(file);
     }
 
@@ -33,14 +40,11 @@ public class MixerController {
         //this.recorder.stop();
     }
 
-    public List<Track> getTracks()
-    {
-        return this.tracks;
-    }
 
     private File getFile()
     {
-        String name = "track" + this.tracks.size() + ".3gp";
+        String name = "track_" + index + ".3gp";
+        index++;
         return new File(Environment.getExternalStorageDirectory(), name);
     }
 }

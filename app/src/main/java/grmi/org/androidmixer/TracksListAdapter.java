@@ -26,12 +26,12 @@ public class TracksListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return controller.getTracks().size();
+        return controller.getMixTable().getTracks().size();
     }
 
     @Override
     public Object getItem(int position) {
-        return controller.getTracks().get(position);
+        return controller.getMixTable().getTracks().get(position);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class TracksListAdapter extends BaseAdapter {
             layoutItem = (LinearLayout) convertView;
         }
         TextView txtView = (TextView)layoutItem.findViewById(R.id.textView);
-        txtView.setText(controller.getTracks().get(position).getFile().getName());
+        txtView.setText(controller.getMixTable().getTracks().get(position).getFile().getName());
         return layoutItem;
     }
 }

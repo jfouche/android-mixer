@@ -1,11 +1,12 @@
 package grmi.org.androidmixer;
 
 import java.io.File;
+import java.io.Serializable;
 
 /**
  * Created by Jeremy on 26/08/2016.
  */
-public class Track {
+public class Track implements Serializable {
 
     private File file;
 
