@@ -22,7 +22,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="rec"
+                android:text="@string/btn_rec_name"
                 android:id="@+id/btn_record"
                 android:nestedScrollingEnabled="false"
                 android:onClick="onRecord" />
@@ -30,7 +30,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="stop"
+                android:text="@string/btn_stop_name"
                 android:id="@+id/btn_stop_rec"
                 android:onClick="onStopRecord" />
         </LinearLayout>
@@ -42,8 +42,21 @@
 
             <ListView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="295dp"
                 android:id="@+id/lv_tracks" />
         </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_play_name"
+                android:id="@+id/btn_play" />
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>
